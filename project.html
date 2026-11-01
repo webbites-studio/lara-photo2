@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project — Lara Nikolau</title>
+  <meta name="description" content="Selected photography project by Lara Nikolau.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">Lara Nikolau</a>
+    <nav class="nav-desktop" aria-label="Primary">
+      <a href="index.html#portfolio">Portfolio</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="header-right">
+      <a class="header-ig" href="https://www.instagram.com/lara_nikolau/" target="_blank" rel="noopener">Instagram</a>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html#portfolio">Portfolio</a>
+  <a href="index.html#about">About</a>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#contact">Contact</a>
+  <div class="mobile-social">
+    <a href="https://www.instagram.com/lara_nikolau/" target="_blank" rel="noopener">Instagram</a>
+    <a href="mailto:hello@lara-photography.com">Email</a>
+  </div>
+</div>
+
+<main>
+  <div class="hs-space" id="hs-space">
+    <div class="hs-pin">
+      <div class="hs-track" id="hs-track">
+        <div id="project-track" class="hs-fragment"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lightbox-close" type="button">Close</button>
+  <button class="lightbox-nav prev" type="button">Prev</button>
+  <img alt="">
+  <button class="lightbox-nav next" type="button">Next</button>
+  <div class="lightbox-cap"></div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
