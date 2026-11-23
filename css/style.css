@@ -219,8 +219,9 @@ p {
   z-index: 45;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 5rem 2rem 3rem;
+  overflow-y: auto;
   transform: translateY(-8px);
   opacity: 0;
   pointer-events: none;
@@ -239,13 +240,28 @@ p {
   line-height: 1.2;
 }
 
+.mobile-menu > a:first-child {
+  margin-top: auto;
+}
+
 .mobile-social {
   margin-top: 2.4rem;
+  margin-bottom: auto;
   display: flex;
+  flex-wrap: wrap;
   gap: 1.4rem;
   font-size: 0.72rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
+}
+
+.mobile-menu .mobile-social a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  line-height: 1.4;
 }
 
 /* --------------------------------------------------------------------------
