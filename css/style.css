@@ -989,6 +989,16 @@ p {
   margin-bottom: 0.2rem;
 }
 
+.website-credit a,
+.panel-end .website-credit a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.panel-end p.website-credit {
+  opacity: 1;
+}
+
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

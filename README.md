@@ -2,7 +2,7 @@
 
 A horizontally scrolling editorial portfolio for photographer **Lara Nikolau**.
 
-Photography is the dominant visual language. All images currently on the site are **placeholder Unsplash photographs** chosen to echo the mood of [Lara’s Instagram](https://www.instagram.com/lara_nikolau/) (natural light, genuine emotion, muted editorial warmth). They are **not** her work and should be replaced with original files before launch.
+Photography is the dominant visual language. The site uses local photographs.
 
 ## Preview
 
@@ -22,7 +22,7 @@ Alternatively use the Five Server / Live Server extension in VS Code.
 index.html        Horizontal homepage (hero → projects → portfolio → about → services → contact)
 project.html      Horizontal project story (?slug=sunday-light)
 css/style.css     Design system
-js/data.js        Copy, categories, placeholder image IDs
+js/data.js        Copy, categories, and image paths
 js/main.js        Horizontal scroll, gallery, lightbox, form
 ```
 
@@ -35,4 +35,4 @@ js/main.js        Horizontal scroll, gallery, lightbox, form
 
 ## Replacing photographs
 
-Edit the Unsplash IDs in `js/data.js` (`img('...')`) and the two hero/about/contact `<img>` tags in `index.html`. Prefer `auto=format&fit=crop&w=…&q=80` (or local compressed assets) for fast loading.
+Edit the image paths in `js/data.js` and the hero, about, and contact `<img>` tags in `index.html`. Use compressed local assets for fast loading.

@@ -176,12 +176,12 @@ function renderProjects() {
     a.href = `project.html?slug=${encodeURIComponent(p.slug)}`;
     a.setAttribute('data-theme', 'dark');
     a.innerHTML = `
-      <img src="${p.cover}" alt="${p.title} — placeholder photograph" loading="lazy">
+      <img src="${p.cover}" alt="${p.title} — photograph" loading="lazy">
       <div class="veil"></div>
       <div class="project-meta">
         <div class="cat">${p.category}</div>
         <h3>${p.title}</h3>
-        <div class="loc">${p.location} · ${p.date}</div>
+        <div class="loc">${[p.location, p.date].filter(Boolean).join(' · ')}</div>
         <p>${p.description}</p>
         <span class="btn btn-light" style="margin-top:0.9rem;">View Project <span class="btn-arrow">→</span></span>
       </div>`;
@@ -198,7 +198,7 @@ let lightboxItems = [];
 function renderFilters() {
   const el = document.getElementById('cat-filters');
   if (!el || typeof CATEGORIES === 'undefined') return;
-  const all = [{ slug: 'all', label: 'All' }, ...CATEGORIES];
+  const all = [{ slug: 'all', label: 'All' }, ...CATEGORIES.filter((c) => PORTFOLIO.some((p) => p.category === c.slug))];
   el.innerHTML = all.map((c) =>
     `<button type="button" data-cat="${c.slug}" class="${c.slug === folioFilter ? 'is-active' : ''}">${c.label}</button>`
   ).join('');
@@ -228,7 +228,7 @@ function renderPortfolio() {
     fig.className = `panel film-item size-${item.size || 'tall'}`;
     fig.setAttribute('data-theme', item.size === 'full' ? 'dark' : 'light');
     fig.innerHTML = `
-      <img src="${item.img}" alt="${item.title} — placeholder photograph" loading="lazy">
+      <img src="${item.img}" alt="${item.title} — photograph" loading="lazy">
       <figcaption>${item.title} · ${item.category}</figcaption>`;
     fig.addEventListener('click', () => openLightbox(i));
     wrap.appendChild(fig);
@@ -260,7 +260,7 @@ function paintLightbox() {
   if (!item) return;
   const image = lightbox.querySelector('img');
   const cap = lightbox.querySelector('.lightbox-cap');
-  image.src = item.img.replace('w=1600', 'w=2200');
+  image.src = item.img;
   image.alt = item.title;
   cap.textContent = `${item.title} · ${item.category}`;
 }
@@ -298,14 +298,14 @@ function renderServices() {
     col.className = 'panel service-col';
     col.setAttribute('data-theme', 'light');
     col.innerHTML = `
-      <div class="sv-media"><img src="${s.image}" alt="${s.title} — placeholder" loading="lazy"></div>
+      <div class="sv-media"><img src="${s.image}" alt="${s.title} — photograph" loading="lazy"></div>
       <div class="sv-text">
         <span class="sv-index">0${i + 1}</span>
         <h3>${s.title}</h3>
         <p>${s.description}</p>
         <ul class="sv-includes">${s.includes.map((inc) => `<li>${inc}</li>`).join('')}</ul>
         <div class="sv-footer">
-          <div class="sv-price"><span>Starting at</span>${s.price}</div>
+          <div class="sv-price">${s.price ? `<span>Starting at</span>${s.price}` : 'Inquire for pricing'}</div>
           <a class="btn btn-dark" href="#contact" data-inquire="${s.slug}">Inquire <span class="btn-arrow">→</span></a>
         </div>
       </div>`;
@@ -389,12 +389,12 @@ function renderProjectPage() {
   hero.className = 'panel project-hero-panel';
   hero.setAttribute('data-theme', 'dark');
   hero.innerHTML = `
-    <img src="${project.cover}" alt="${project.title} — placeholder cover">
+    <img src="${project.cover}" alt="${project.title} — cover photograph">
     <div class="hero-veil"></div>
     <div class="project-hero-copy">
       <span class="eyebrow">${project.category}</span>
       <h1>${project.title}</h1>
-      <p>${project.location} · ${project.date}</p>
+      <p>${[project.location, project.date].filter(Boolean).join(' · ')}</p>
     </div>`;
   const note = document.createElement('section');
   note.className = 'panel project-note';
@@ -406,7 +406,7 @@ function renderProjectPage() {
     const frame = document.createElement('figure');
     frame.className = 'panel project-frame';
     frame.setAttribute('data-theme', 'dark');
-    frame.innerHTML = `<img src="${src}" alt="${project.title} ${i + 1} — placeholder photograph" loading="lazy">`;
+    frame.innerHTML = `<img src="${src}" alt="${project.title} ${i + 1} — photograph" loading="lazy">`;
     frame.addEventListener('click', () => {
       lightboxItems = project.gallery.map((g, gi) => ({
         img: g,
@@ -420,7 +420,7 @@ function renderProjectPage() {
   const end = document.createElement('section');
   end.className = 'panel panel-end';
   end.setAttribute('data-theme', 'dark');
-  end.innerHTML = `<div><a class="logo" href="index.html">Lara Nikolau</a><p><a href="index.html#portfolio">Back to portfolio</a></p></div>`;
+  end.innerHTML = `<div><a class="logo" href="index.html">Lara Nikolau</a><p><a href="index.html#portfolio">Back to portfolio</a></p><p class="website-credit">Website created by <a href="https://webbites.dev" target="_blank" rel="noopener noreferrer">Webbites.dev</a></p></div>`;
   root.appendChild(end);
 }
 
