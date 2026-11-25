@@ -24,6 +24,7 @@ project.html      Horizontal project story (?slug=sunday-light)
 css/style.css     Design system
 js/data.js        Copy, categories, and image paths
 js/main.js        Horizontal scroll, gallery, lightbox, form
+images/           Photo assets
 ```
 
 ## Design notes
